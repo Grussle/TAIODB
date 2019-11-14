@@ -1,7 +1,7 @@
 {
-  "name": "Sprussle",
-  "version": "0.0.1",
-  "description": "Basic moderation and fun bot that is currently under developement",
+  "name": "TAIOB",
+  "version": "1.0.1",
+  "description": "The All In One Bot (Currently Under Developement)",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
