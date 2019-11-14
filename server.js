@@ -8,7 +8,6 @@ const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('
 const http = require('http');
 const express = require('express');
 const app = express();
-const developing = 'false';
 app.get("/", (request, response) => {
   console.log(Date.now() + " Ping Received");
   response.sendStatus(200);
@@ -46,17 +45,7 @@ const commandName = args.shift().toLowerCase();
 		}
 		return message.channel.send(reply);
 	}
-  if (developing === 'true' && message.author.id !== '603996421833752589'){
-      message.channel.send(':no_entry: The bot is currently undergoing development. :no_entry: ')
-    return
-      }
-  if (command.dev === 'true'){
-      message.channel.send(':no_entry: This command is under development. :no_entry:')
-    return
-      }
-    if (command.personal === 'true' && message.author.id !== '603996421833752589'){
-        message.channel.send(':no_entry: You do not have access to this command! :no_entry: ')
-        }
+
   
 try {
 	client.commands.get(commandName).execute(message, args);
