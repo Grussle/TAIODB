@@ -15,8 +15,7 @@ const mcommandFiles = fs
 const http = require("http");
 const express = require("express");
 const app = express();
-
-
+const developing = "false";
 app.get("/", (request, response) => {
   console.log(Date.now() + " Ping Received");
   response.sendStatus(200);
@@ -26,7 +25,7 @@ client.on('ready', () => {
     client.user.setPresence({
         game: {
             name: 'Both Prefixes',
-            type: "STREAMING",
+            type: "WATCHING",
         }
     });
 });
@@ -63,7 +62,6 @@ client.on("message", message => {
   if (command.args && !args.length) {
     let reply = `You didn't provide any arguments, ${message.author}!`;
 
-
     if (command.usage) {
       reply += `\nThe proper usage would be: \`${prefix}${command.name} ${command.usage}\``;
     }
@@ -90,21 +88,6 @@ client.on("message", message => {
     return
   }
 
-		if (command.usage) {
-			reply += `\nThe proper usage would be: \`${prefix}${command.name} ${command.usage}\``;
-		}
-		return message.channel.send(reply);
-	}
-
-  
-try {
-	client.commands.get(commandName).execute(message, args);
-} catch (error) {
-	console.error(error);
-	message.reply(':warning: There was an error trying to execute that command! :warning:');
-}	
-
-
   try {
     client.commands.get(commandName).execute(message, args);
   } catch (error) {
@@ -129,7 +112,6 @@ client.on("message", message => {
   if (mcommand.args && !args.length) {
     let reply = `You didn't provide any arguments, ${message.author}!`;
 
-
     if (mcommand.usage) {
       reply += `\nThe proper usage would be: \`${prefix}${mcommand.name} ${mcommand.usage}\``;
     }
@@ -152,6 +134,4 @@ client.on("message", message =>{
     message.channel.send(":gun: FBI OPEN UP! :gun:");
   }
 });
-
-
 client.login(token);

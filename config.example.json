@@ -1,4 +1,6 @@
 {
-  "prefix": "Bot_Prefix_Here",
-  "token": "Bot_Token_Here"
+  "prefix": "General-Prefix-Here",
+  "token": "Bot-Token-Here",
+  "adminid": "Admin-Id-Here",
+  "mprefix": "Staff-Prefix-Here"
 }
