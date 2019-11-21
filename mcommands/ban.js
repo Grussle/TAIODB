@@ -3,7 +3,7 @@ module.exports = {
   description: "A simple ban command",
   usage: "<user>",
   guildOnly: 'true',
-  staffOnly: 'true',
+  staffOnly: true,
   dev: 'false',
   execute (message, args){
     const member = message.mentions.members.first();
