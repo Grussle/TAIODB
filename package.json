@@ -1,7 +1,7 @@
 {
-  "name": "TAIOB",
-  "version": "1.0.1",
-  "description": "The All In One Bot (Currently Under Developement)",
+  "name": "Bot-Name-Here",
+  "version": "1.0.3",
+  "description": "Bot-Description-Here",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
