@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>prune.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../doc-style.css" />
+  <script src="../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../";
+    var thisFile = "commands/prune.js";
+    var defaultSidebar = true;
+  </script>
+  <script src="../doc-script.js"></script>
+
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container">
+    <div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+    
+      <tr>
+        <td class="docs">
+          <h1>prune.js</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+    
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1"></a>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript"><span class="hljs-keyword">const</span> Discord = <span class="hljs-built_in">require</span>(<span class="hljs-string">'discord.js'</span>);
+<span class="hljs-keyword">const</span> guild = <span class="hljs-keyword">new</span>  Discord.Guild;
+<span class="hljs-built_in">module</span>.exports = {
+  <span class="hljs-attr">name</span>: <span class="hljs-string">'prune'</span>,
+  <span class="hljs-attr">descriptions</span>: <span class="hljs-string">'Used to kick inactive members.'</span>,
+  <span class="hljs-attr">dev</span>: <span class="hljs-string">'true'</span>,
+  <span class="hljs-attr">personal</span>: <span class="hljs-string">'true'</span>,
+  execute (message, args){
+  guild.pruneMembers(<span class="hljs-number">12</span>, <span class="hljs-literal">true</span>)
+  .then(<span class="hljs-function"><span class="hljs-params">pruned</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`This will prune <span class="hljs-subst">${pruned}</span> people!`</span>))
+  .catch(<span class="hljs-built_in">console</span>.error);                   
+  }
+}
+</pre>
+        </td>
+      </tr>
+    
+  </tbody>
+</table>
+
+  </div>
+</body>
+</html>

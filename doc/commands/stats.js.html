@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>stats.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../doc-style.css" />
+  <script src="../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../";
+    var thisFile = "commands/stats.js";
+    var defaultSidebar = true;
+  </script>
+  <script src="../doc-script.js"></script>
+
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container">
+    <div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+    
+      <tr>
+        <td class="docs">
+          <h1>stats.js</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+    
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1"></a>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript"><span class="hljs-keyword">const</span> { name, version, description } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../package.json'</span>);
+<span class="hljs-keyword">const</span> { prefix } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../config.json'</span>);
+<span class="hljs-built_in">module</span>.exports = {
+  <span class="hljs-attr">name</span>: <span class="hljs-string">'stats'</span>,
+  <span class="hljs-attr">description</span>: <span class="hljs-string">'Shows the stats if the bot'</span>,
+  <span class="hljs-attr">dev</span>: <span class="hljs-string">'false'</span>,
+  execute(message, args){
+    message.channel.send(<span class="hljs-string">`Name: <span class="hljs-subst">${name}</span> \nVersion: <span class="hljs-subst">${version}</span> \nDescription: <span class="hljs-subst">${description}</span>`</span>)
+  }
+}
+</pre>
+        </td>
+      </tr>
+    
+  </tbody>
+</table>
+
+  </div>
+</body>
+</html>

@@ -1,23 +1,25 @@
 {
-  "name": "Sprussle",
-  "version": "0.0.1",
+  "name": "TAIOB",
+  "version": "1.0.3",
   "description": "Basic moderation and fun bot that is currently under developement",
+  "iconURL": "https://media.discordapp.net/attachments/647143398913998859/647166241022148620/Untitled_1.png?width=301&height=301",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "lint": "eslint ."
   },
   "dependencies": {
+    "child-process-promise": "^2.2.1",
     "discord.js": "^11.5.1",
+    "docker": "^1.0.0",
     "event-emitter": "^0.3.5",
     "events": "^3.0.0",
     "express": "^4.16.4",
-    "sequelize": "^6.0.0",
-    "sqlite": "^3.0.3",
-    "child-process-promise": "^2.2.1",
-    "path": "^0.12.7",
     "fs": "^0.0.2",
-    "node": "^12.13.0"
+    "fs-extra": "^8.1.0",
+    "path": "^0.12.7",
+    "sequelize": "^6.0.0",
+    "sqlite": "^3.0.3"
   },
   "engines": {
     "node": "10.15.3"

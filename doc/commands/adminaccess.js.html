@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>adminaccess.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../doc-style.css" />
+  <script src="../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../";
+    var thisFile = "commands/adminaccess.js";
+    var defaultSidebar = true;
+  </script>
+  <script src="../doc-script.js"></script>
+
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container">
+    <div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+    
+      <tr>
+        <td class="docs">
+          <h1>adminaccess.js</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+    
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1"></a>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript"><span class="hljs-keyword">const</span> Discord = <span class="hljs-built_in">require</span> (<span class="hljs-string">"discord.js"</span>);
+<span class="hljs-keyword">const</span> { adminid } = <span class="hljs-built_in">require</span> (<span class="hljs-string">"../config.json"</span>);
+<span class="hljs-built_in">module</span>.exports = {
+  <span class="hljs-attr">name</span>: <span class="hljs-string">'adminaccess'</span>,
+  <span class="hljs-attr">description</span>: <span class="hljs-string">'Grants admin access to commands'</span>,
+  execute(message, args){
+    message.channel.send(<span class="hljs-string">'Password'</span>)
+    <span class="hljs-keyword">const</span> collector = <span class="hljs-keyword">new</span> Discord.MessageCollector(message.channel, m =&gt; m.author.id === message.author.id, { <span class="hljs-attr">time</span>: <span class="hljs-number">10000</span> });
+        <span class="hljs-built_in">console</span>.log(collector)
+        collector.on(<span class="hljs-string">'collect'</span>, message =&gt; {
+            <span class="hljs-keyword">if</span> (message.content == <span class="hljs-string">"9856"</span> &amp;&amp; message.author.id === adminid) {
+                message.channel.send(<span class="hljs-string">"It worked"</span>);
+              collector.end();
+            } <span class="hljs-keyword">else</span>{
+                message.channel.send(<span class="hljs-string">"It didn't work"</span>);
+            }
+        })
+  }
+}
+</pre>
+        </td>
+      </tr>
+    
+  </tbody>
+</table>
+
+  </div>
+</body>
+</html>

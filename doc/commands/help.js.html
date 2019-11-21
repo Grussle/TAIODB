@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>help.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../doc-style.css" />
+  <script src="../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../";
+    var thisFile = "commands/help.js";
+    var defaultSidebar = true;
+  </script>
+  <script src="../doc-script.js"></script>
+
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container">
+    <div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+    
+      <tr>
+        <td class="docs">
+          <h1>help.js</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+    
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1"></a>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript"><span class="hljs-keyword">const</span> { prefix } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../config.json'</span>);
+<span class="hljs-built_in">module</span>.exports = {
+	<span class="hljs-attr">name</span>: <span class="hljs-string">'help'</span>,
+	<span class="hljs-attr">description</span>: <span class="hljs-string">'List all of my commands or info about a specific command.'</span>,
+	<span class="hljs-attr">usage</span>: <span class="hljs-string">'[command name]'</span>,
+  <span class="hljs-attr">dev</span>: <span class="hljs-string">'false'</span>,
+	execute(message, args) {
+		<span class="hljs-keyword">const</span> data = [];
+<span class="hljs-keyword">const</span> { commands } = message.client;
+
+<span class="hljs-keyword">if</span> (!args.length) {
+	data.push(<span class="hljs-string">'Here\'s a list of all my commands:'</span>);
+data.push(commands.map(<span class="hljs-function"><span class="hljs-params">command</span> =&gt;</span> command.name).join(<span class="hljs-string">', '</span>));
+data.push(<span class="hljs-string">`\nYou can send \`<span class="hljs-subst">${prefix}</span>help [command name]\` to get info on a specific command!`</span>);
+
+<span class="hljs-keyword">return</span> message.author.send(data, { <span class="hljs-attr">split</span>: <span class="hljs-literal">true</span> })
+	.then(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+		<span class="hljs-keyword">if</span> (message.channel.type === <span class="hljs-string">'dm'</span>) <span class="hljs-keyword">return</span>;
+		message.reply(<span class="hljs-string">'I\'ve sent you a DM with all my commands!'</span>);
+	})
+	.catch(<span class="hljs-function"><span class="hljs-params">error</span> =&gt;</span> {
+		<span class="hljs-built_in">console</span>.error(<span class="hljs-string">`Could not send help DM to <span class="hljs-subst">${message.author.tag}</span>.\n`</span>, error);
+		message.reply(<span class="hljs-string">'it seems like I can\'t DM you! Do you have DMs disabled?'</span>);
+	});
+}
+
+<span class="hljs-keyword">const</span> name = args[<span class="hljs-number">0</span>].toLowerCase();
+<span class="hljs-keyword">const</span> command = commands.get(name) || commands.find(<span class="hljs-function"><span class="hljs-params">c</span> =&gt;</span> c.aliases &amp;&amp; c.aliases.includes(name));
+
+<span class="hljs-keyword">if</span> (!command) {
+	<span class="hljs-keyword">return</span> message.reply(<span class="hljs-string">'that\'s not a valid command!'</span>);
+}
+
+data.push(<span class="hljs-string">`**Name:** <span class="hljs-subst">${command.name}</span>`</span>);
+
+<span class="hljs-keyword">if</span> (command.aliases) data.push(<span class="hljs-string">`**Aliases:** <span class="hljs-subst">${command.aliases.join(<span class="hljs-string">', '</span>)}</span>`</span>);
+<span class="hljs-keyword">if</span> (command.description) data.push(<span class="hljs-string">`**Description:** <span class="hljs-subst">${command.description}</span>`</span>);
+<span class="hljs-keyword">if</span> (command.usage) data.push(<span class="hljs-string">`**Usage:** <span class="hljs-subst">${prefix}</span><span class="hljs-subst">${command.name}</span> <span class="hljs-subst">${command.usage}</span>`</span>);
+
+data.push(<span class="hljs-string">`**Cooldown:** <span class="hljs-subst">${command.cooldown || <span class="hljs-number">3</span>}</span> second(s)`</span>);
+
+message.channel.send(data, { <span class="hljs-attr">split</span>: <span class="hljs-literal">true</span> });
+	},
+};
+</pre>
+        </td>
+      </tr>
+    
+  </tbody>
+</table>
+
+  </div>
+</body>
+</html>
