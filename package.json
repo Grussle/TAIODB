@@ -1,8 +1,14 @@
 {
+
   "name": "TAIOB",
   "version": "1.0.3",
   "description": "Basic moderation and fun bot that is currently under developement",
   "iconURL": "https://media.discordapp.net/attachments/647143398913998859/647166241022148620/Untitled_1.png?width=301&height=301",
+
+  "name": "Bot-Name-Here",
+  "version": "1.0.3",
+  "description": "Bot-Description-Here",
+
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
